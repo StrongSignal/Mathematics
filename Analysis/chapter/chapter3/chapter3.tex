@@ -1,0 +1,44 @@
+\chapter{Uniform convergence}
+\section{Limiting values of functions}
+\paragraph{Excercise 3.1.1}
+I still trying to comprehend those things. Those are intuitive, but details are not that clear.
+\section{Pointwise and uniform convergence}
+\paragraph{Excercise 3.2.1}
+\begin{itemize}
+\item[(a)]$\Rightarrow$ $f$ is continuous, then for a sequence $x-a_{n}$ converges to $x$. $f_{n}(x)=f(x-a_{n})\rightarrow f(x)$. Thus, it is point wise continuous.\\
+$\Leftarrow$ To show $f$ is continuous that is to show for any given sequence $a_{n}$ goes to $x$, $f(a_{n})\rightarrow f(x)$.\\ Pf: For any $x$ and any given sequence $b_{n}$ goes to $x$, there exists a sequence $a_{n}$ such that $b_{n}=x-a_{n}$. $f(b_{n})=f(x-a_{n})=f_{a_{n}}(x)\rightarrow f(x)$\\
+\item[(b)]$\Rightarrow$ $\forall\varepsilon$ there exists a $\delta$ s.t. $d(f(x),f(y))<\varepsilon$ when $d(x,y)<\delta$  ($f$ is uniformly continuous.). Then there exists $N$, s.t. $d(x,x-a_{n})<\delta$, when $n>N$. This implies $d(f(x),f(x-a_{n}))<\varepsilon$. This is the same as $d(f^{(n)}(x),f(x))<\varepsilon$.$\Box$\\
+$\Leftarrow$ Assume this isn't the case, which means; when the shifted functions $f_{a_{n}}$ converge uniformly to $f$, $f$ isn't uniformly continuous. Then there exists a $\varepsilon>0$ s.t. , for any $\frac{1}{n}$, there exist $x_{n}$, $y_{n}$, satisfies $d(x_{n},y_{n})<\frac{1}{n}$, $d(f(x_{n}),f(y_{n}))>\varepsilon$. We set $a_{n}:=x_{n}-y_{n}\rightarrow 0$. $f_{a_{n}}$ is not converge uniformly to $f$ (why?).\Lightning$\Box$\\
+
+\end{itemize}
+
+\paragraph{Excercise 3.2.4} $f_{n}$ converges uniformly to $f$. Then there exists a $N$ such that, for all $n>N$ and arbitrary $x$, $d(f(x),f_{n}(x))<R$ (The $R$ for $f(x)$.). This implies there is only a need for considering those $f_{n}$ with $n<N$. Because all those $f_{n}$ ($n<N$) is bounded uniformly, there exist finitely many balls $B_{(Y,d_{Y})}(y_{m},R_{m})$ that cover $f_{n}$ respectively. Intently, $B_{Y,d_{Y}}(y_{0},R_{0})$ with $R_{0}:=max\{d(y_{m},y_{0})\}+max\{R_{m}\}+R$ is the ball that shows that $f_{n}$ is bounded uniformly.
+
+\section{Uniform convergence and  ontinuity}
+\paragraph{Excercise3.3.1} To show it is also continuous is the same as to show: for any $\varepsilon$, there exists a $\delta$ such that $d(f(x),f(x_{0}))<\varepsilon$ for all $x$ satisfies $d(x,x_{0})<\delta$--- we want to figure out the $\delta$. \\
+There are three $\frac{\varepsilon}{3}$ we need to satisfy. The first and last we can use uniform convergent property to satisfied; there exists a $N$ such that $d(f(x),f^{(n)}(x))<\frac{\varepsilon}{3}$, for all $x$ and $n>N$. Then we can pick a particular $n_{0}=N+1$. For $f^{n_{0}}$ is contiunous at $x_{0}$, there exists a $\delta_{0}$ to make the middle $\frac{\varepsilon}{3}$ hold.$\Box$
+\paragraph{Excercise3.3.2}
+With the help of proposition3.1.5, first we need to show that $\lim_{x\rightarrow x_{0};x\in E}f(x)$ exists in the sequence point of view.\\
+For any $x_{n}\rightarrow x$, $x_{n}\in E$, we want to show that $\{f(x_{n})\}_{n}$ is Cauchy ( $Y$ is complete.). This is the same as to show that: there exists $N_{0}$ such that $d_{Y,d_{Y}}(f(x_{n}),f(x_{m}))<\varepsilon$ when $n,m>N_{0}$.
+\[d_{Y,d_{Y}}(f(x_{n}),f(x_{m}))<d_{Y,d_{Y}}(f(x_{n}),f^{p}(x_{n}))+d_{Y,d_{Y}}(f^{p}(x_{n}),f^{p}(x_{m}))+d_{Y,d_{Y}}(f^{p}(x_{m}),f(x_{m}))
+\]
+Like previous excercise, pick particular $p$. Then we can get the $N_{0}$ we want.
+This means $\{f(x_{n})\}_{n}$ is indeed Cauchy (convergent). Therefore, $\lim_{x\rightarrow x_{0};x\in E}f(x)$ is meaningful.\\
+\\
+Secondly, we want to show that $\lim_{n\rightarrow\infty}\lim_{x\rightarrow x_{0};x\in E}f^{(n)}(x)$ converges to $\lim_{x\rightarrow x_{0};x\in E}f(x)$; $\forall\varepsilon$ $\exists N_{0}$, when $n>N_{0}$,
+$d_{Y,d_{Y}}(\lim_{x\rightarrow x_{0},x\in E}f(x),\lim_{x\rightarrow x_{0},x\in E}f^{(n)}(x))<\varepsilon$.\dots (1)\\
+For a sequence $x_{m}$ converges to $x$, there exists $N=max\{N_{1},N_{2}\}$ make \\$d_{Y,d_{Y}}(f(x_{m}),\lim_{x\rightarrow x_{0},x\in E}f(x))<\frac{\varepsilon}{3}$ and $d_{Y,d_{Y}}(f^{(n)}(x_{m}),\lim_{x\rightarrow x_{0},x\in E}f^{(n)}(x))<\frac{\varepsilon}{3}$ when $m>N$.
+At $x_{m}$, of course, there exists $N_{0}$ s.t. $d_{Y,d_{Y}}(f(x_{m}),f^{(n)}(x_{m}))$ when $n>N_{0}$. We have already found the target $N_{0}$ and, with the help of triangular inequality, (1) is true.$\Box$
+
+\paragraph{Excercise3.3.8}
+\[|f_{n}g_{n}-f_{n}g+f_{n}g-fg|\leq|f_{n}||g_{n}-g|+|g_{n}||f_{n}-f|
+\]
+
+
+
+
+
+
+
+
+
