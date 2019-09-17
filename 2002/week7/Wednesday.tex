@@ -1,0 +1,102 @@
+
+
+\section{Wednesday}\index{Wednesday_lecture}
+\section{Series solutions}
+\paragraph{Introduction} As we have already seen before, $y\pp+p(t)y\p+q(t)y=0$, when $p(t)$ and $q(t)$ are constant, is solvable. Now we begin to wondering about the case when $p(t)$ and $q(t)$ are not constant. Like the following one.
+\begin{example}
+\[y\pp-2ty\p-2y=0
+\]
+Obviously, first guess the solution as polynomial fails. What about infinite series?
+\[y(t)=a_0+a_1t+a_2t^2+\cdots+a_nt^n+\cdots=\sum_{n=0}^{\infty}a_nt^n
+\]
+\[y\p(t)=\sum_{n=0}^{\infty}na_nt^{n-1}
+\]
+\[y\pp(t)=\sum_{n=0}^{\infty}n(n-1)a_nt^{n-2}=\sum_{m=0}^{\infty}(m+1)(m+2)a_{m+2}t^m
+\]
+\[y\pp-2ty\p-2y=\sum_{n=0}^{\infty}[(n+2)(n+1)a_{n+2}-2na_n-2a_n]t^n=0
+\]
+\[\Rightarrow (n+1)(n+2)a_{n+2}=2(n+1)a_n
+\]
+\[a_{n+2}=\frac{2}{n+2}a_n,\quad n=0,1,2,\dots
+\]
+As we have shown before, the second order differential equation can be spanned by two linearly independent solutions. We only need to choose two linearly independent solutions. Take $a_0=1$, $a_1=0$ or $a_0=0$, $a_1=1$. Let's take the first case as an example.
+\[a_{n+2}=\frac{2}{n+2}a_n=\frac{2}{n+2}\frac{2}{n}a_{n-2}=\frac{2}{n+2}\frac{2}{n}\frac{2}{n-2}a_{n-4}=\dots
+\]
+In first case, we only focus on even subscript terms as odd subscript terms are all zeros. Take $n=2k$, we get $a_{2k+2}=\frac{1}{(k+1)!}a_0$. 
+\[y=\sum_{k=0}^\infty\frac{1}{k!}t^{2k}\]
+With calculus knowledge we ``easily'' see that $y=e^{t^2}$\\
+Now the following will show how to use variation of parameter to find the other solution. (By the way, Prof. Ni said variation of parameter will definitely be in midterm.)\\
+\[y_1=e^{t^2}
+\]
+\[y_2=vy_1
+\]
+\[y_2\p=v\p y_1+vy_1\p
+\]
+\[y_2\pp=v\pp y_1+2v\p y_1\p
+\]
+\[y_2\pp+p(t)y_2\p+q(t)y_2=0
+\]
+\[\Rightarrow v\pp y_1+v\p(py_1+2y_1\p)=0
+\]
+Pluge $y_1$ in,
+\[v\pp+2tv\p=0
+\]
+$u=v\p$,
+\[u\p+2tu=0
+\]
+\[(e^{\int2t\diff t}u)\p=0
+\]
+\[e^{t^2}u=c~\Rightarrow~v\p=ce^{-t^2}
+\]
+\[v=\int e^{-t^2}\diff t
+\]
+\[y_2=e^{t^2}\int e^{-t^2}\diff t
+\]
+\end{example}
+\begin{theorem}
+Suppose $\frac{Q(t)}{P(t)}$, $\frac{R(t)}{P(t)}$ have convergent taylor series expansions at $t_o$ for $|t-t_0|<\rho$ Then every solutions of the equation $P(t)y\pp+q(t)y\p+R(t)y=0$ is analytic at $t_0$ and the solutions of convergnece for series at $t_0$ is at least $\rho$.
+\end{theorem}
+\begin{remark}
+This theorem only has restriction to the quiotient but not the individual $Q(t)$, $R(t)$, $P(t)$. Therefore, this theorem is more powerful.
+\end{remark}
+\begin{example}
+\[y\pp+\frac{3t}{1+t^2}y\p+\frac{1}{1+t^2}y=0\]
+\[y=a_0+a_1t+a_2t^2+\dots=\sum_{n=0}^{\infty}a_nt^n
+\]
+\[y\p=\sum_{n=0}^\infty na_nt^{n-1}
+\]
+\[y\pp=\sum_{n=0}^{\infty}n(n-1)a_nt^{n-2}
+\]
+\[3ty\p=\sum_{n=0}^{\infty}3na_nt^n
+\]
+\[(1+t^2)y\pp=\sum_{n=0}^\infty(n)(n-1)a_nt^{n-2}+\sum_{n=0}^\infty n(n-1)a_nt^n
+\]
+Pluge those terms in 
+\[(1+t^2)y\pp+3ty\p+y=0
+\]
+We get
+\[\sum_{m=0}^\infty(m+2)(m+1)a_{m+2}t^m+\sum_{n=0}^\infty[n(n-1)a_n+3na_n+a_n]t^n=0
+\]
+\[0=\sum_{n=0}^\infty t^n\{(n+2)(n+1)a_{n+2}+[n^2+2n+1]a_n\}
+\]
+Therefore, $a_{n+2}=-\frac{n+1}{n+2}a_n$
+\end{example}
+\begin{remark}
+It's much more easy to compute with both side of the equation multiplies $1+t^2$.
+\end{remark}
+\begin{example}[Initial value problem]
+\[(t^2-2t)y\pp+5(t-1)y\p+3y=0
+\]
+$y(1)=7$, $y\p(1)=3$
+\end{example}
+Change the variable with $s=(t-1)$,
+we get
+\[(s^2-1)y\pp+5sy\p+3y=0
+\]
+which is a initial value problem with initial value at 0.
+As \[\begin{aligned}
+(t^2-2t)&=[(t-1)+1]^2-2[(t-1)+1]\\
+&=(t-1)^2+2(t-1)+1-2(t-1)-2\\
+&=(t-1)^2-1
+\end{aligned}
+\]

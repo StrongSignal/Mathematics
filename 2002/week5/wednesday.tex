@@ -1,0 +1,125 @@
+\chapter{Week5}
+
+\section{Wednesday}\index{Wednesday_lecture}
+\subsection{Second order differential equation}
+\[F(t,y,y^\prime,y^{\prime\prime})=0
+\]
+\[y^{\prime\prime}=f(t,y,y^{\prime\prime})
+\]
+ (*)$\left \{	\begin{gathered}
+y^{\prime\prime}+P(t)y^\prime+q(t)y=0	\\
+y(t_0)=y_0\\
+y^\prime(t_0)=y_0^\prime.
+\end{gathered}\right.$ 
+\begin{theorem}
+Let $P(t)$, $q(t)$ be continuous on $(\alpha,\beta)$ and $t_0\in(\alpha,\beta)$. Then there exists a unique solution for the IVP (*) on the entire interval $(\alpha,\beta)$.
+\end{theorem}
+\begin{remark}
+Remember previous example $y^\prime=1+y^2$, the solution is $y=\tan x$ which makes the above theorem dubious( $p$, $q$ are continuous on entire $\mathbb{R}$, while the solution is only on $(-\frac{\pi}{2},\frac{\pi}{2})$). However, the theorem requires DEs to be linear( $y^\prime=1+y^2$ isn't linear). (PS: linear means the variable only appears with power of 1.)\\
+In addition, this theorem will be proved latter.
+\end{remark}
+\begin{definition}
+Define $L[y]=y^{\prime\prime}+P(t)y^\prime+q(t)y$\\ 
+The set of all solutions to $L[y]=0$ is denoted by $ker(L)=\{y|L[y]=0\}$
+
+\end{definition}
+\begin{proposition}
+\quad\\
+1.~Ker(L) is a vector space of dimension 2.\\
+2.~$\{y_1,y_2\}$ is a basis for ker(L) where\\
+ $\left \{	\begin{gathered}
+y_1^{\prime\prime}+P(t)y_1^\prime+q(t)y_1=0	\\
+y_1(t_0)=1, y_1^\prime(t_0)=0.
+\end{gathered}\right.$ \qquad
+$\left \{	\begin{gathered}
+y_2^{\prime\prime}+P(t)y_2^\prime+q(t)y_2=0	\\
+y_2(t_0)=0, y_2^\prime(t_0)=1.
+\end{gathered}\right.$ 
+\end{proposition}
+
+\begin{proof}
+In order to show it's a basis, there are two things that we need to show.
+First, any solution $y$ to (*) can be written as a linear combination of $y_1,y_2$. Assume it is $y=c_1y_1+c_2y_2$. What we need to do now is checking whether it satisfies the equation and finding out what $c_1$ and $c_2$ are exactly.
+\[\begin{aligned}
+L[c_1y_1+c_2y_2]&=(c_1y_1^{\prime\prime}+c_2y_2^{\prime\prime})+p(t)(c_1y_1^\prime+c_2y_2^\prime)+q(t)(c_1y_1+c_2y_2)\\
+&=c_1y_1^{\prime\prime}+p(t)c_1y_1^\prime+q(t)c_1y_1+c_2y_2^{\prime\prime}+p(t)c_2y_2^\prime+q(t)c_2y_2\\
+&=c_1L[y_1]+c_2L[y_2]=0
+\end{aligned}
+\]
+Therefore, it satisfies the first equation. Now, let's find out the value of coefficient.
+\[[c_1y_1+c_2y_2](t_0)=c_1y_1(t_0)+c_2y_2(t_0)=c_1=y(t_0)
+\]
+\[[c_1y_1+c_2y_2]^\prime(t_0)=c_1y_1^\prime(t_0)+c_2y_2^\prime(t_0)=c_2=y^\prime(t_0)
+\]
+With $c_1=y(t_0)$, $c_2=y^\prime(t_0)$, $y$ is a solution of (*). In addition, with uniqueness, $y\equiv z=c_1y_1+c_2y_2$.\\
+Second, we need to show they are linearly independent.\\
+Claim $\{y_1,y_2\}$ are linearly independent, i.e. if there exists constants $c_1$, $c_2$ s.t. $c_1y_1+c_2y_2=0$ $\forall t\in(\alpha,\beta)$ then $c_1=c_2=0$.\\
+Let's see why this is the case.
+$z=c_1y_1+c_2y_2$ is a solution for (*).
+\[z(t_0)=0=c_1y_1(t_0)+c_2y_2(t_0)=c_1+0
+\]
+\[z^\prime(t_0)=c_1y_1^\prime(t_0)+c_2y_2^\prime(t_0)=c_2=0
+\]
+\end{proof}
+$L[y]=y^{\prime\prime}+P(t)y^\prime+q(t)y=0$\\
+
+$\left \{	\begin{gathered}
+y(t_0)=y_0\\
+y^\prime(t_0)=Y_0^\prime.
+\end{gathered}\right.$ 
+Suppose $y_1$, $y_2$ are solutions i.e. $y_1$,$y_2\in$ ker(L).\\
+\begin{definition}[Wronskian]$W(t)=y_1(t)y_2^\prime(t)-y_2(t)y_1^\prime(t)$\end{definition}
+Lemma:\\
+(i)$W^\prime+p(t)W=0$\\
+(ii)$W$ is either $\equiv0$ or never 0.\\
+\begin{proof}
+\[W=y_1y_2^\prime-y_2y_1^\prime
+\]
+\[\begin{aligned}W^\prime&=y_1^\prime y_2^\prime+y_1y_2^{\prime\prime}-y_2^\prime  y_1^\prime-y_2y_1^{\prime\prime}\\
+&=y_1(-py_2^\prime-qy_2)+y_2(py_1^\prime+qy_1)\\
+&=-py_1y_2^\prime-y_1qy_2+y_2py_1^\prime+y_2qy_1=p(y_1^\prime y_2-y_1y_2^\prime)=-PW
+\end{aligned}
+\]
+This is $W^\prime+PW=0$.
+\[(e^{\int P(t)\diff t}W)^\prime=0
+\]
+$\Rightarrow$ $\qquad$ $e^{\int P(t)\diff t}W\equiv constant$.\\
+Therefore, $W(t)=W(t_0)(e^{-\int_{t_0}^tP(s)\diff s})$
+\end{proof}
+
+\begin{proposition}
+For any two solutions $y_1$, $y_2$ such that $y_1$, $y_2$ are linearly dependent. $\iff$ $W[y_1,y_2]\equiv0$
+\end{proposition}
+\begin{proof}
+($\Rightarrow$)$y_1$, $y_2$ l.dep\\
+$\Rightarrow$ $\exists$ $c_1$, $c_2$ s.t. $c_1y_1+c_2y_2=0$ (not both 0; definition of linearly dependent.)\\
+Suppose $c_1\neq0$, $y_1=-\frac{c_2}{c_1}y_2=\delta y_2$\\
+$W[y_1,y_2]=y_1y_2^\prime-y_2y_1^\prime=\delta y_2y_2^\prime-y_2\delta y_2^\prime=0$ \qquad ($y_1=\delta y_2$)\\
+
+($\Leftarrow$) \\
+This direction we need to consider two different cases. \\
+(i)\quad$y_1(t)$, $y_2(t)$ are never 0 in ($\alpha,\beta$)\\
+$\Rightarrow$ \quad
+$\frac{y_2^\prime}{y_2}=\frac{y_1^\prime}{y_1}$ \quad $\Rightarrow$ $ln|\frac{y_1}{y_2}|=constant$\\
+$|\frac{y_1}{y_2}|=Constant$ , i.e. $\frac{y_1}{y_2}=constant$\\
+(ii)If $y_1(E)$, $y_2(E)$ =0
+ for some $E\in(\alpha,\beta)$, assume $y_1(E)=0$.\\
+If $y_1^\prime(E)=0$ $\Rightarrow$ $y_1\equiv0$.\\
+If $y_1^\prime(E)\neq0$ \quad$y_1(E)\cdot y_2^\prime(E)=y_2(E)\cdot y_1^\prime(E)$\\
+$y_2(E)=\frac{y_2^\prime(E)}{y_1^\prime(E)}y_1(e)=\delta y_1(E)$
+
+$\left \{	\begin{gathered}
+y_2, \delta y_1 \textit{ are solutions never 0}\\
+y_2(E)=\delta y_1(E)\\
+y_2^\prime(E)=\delta y_1^\prime(E).
+\end{gathered}\right.$ \\
+View $\delta y_1$ as a solution to IVP. By uniqueness, $y_2\equiv\delta y_1$
+\end{proof}
+
+As we showed before, $z^\prime=t^2+z^2$ (1) doesn't have a solution that can be expressed by primary functions. Let $z=-\frac{y^\prime}{y}$. 
+\[z^\prime=-\frac{y^{\prime\prime}}{y}+\frac{{y^\prime}^2}{y^2}=t^2+\frac{{y^\prime}^2}{y^2}
+\]
+From right-hand side equation, we get
+\[y^{\prime\prime}+t^2y=0 \cdots (2)
+\]
+Because (1) doesn't have a solution, then (2) equation doesn't have either.\\

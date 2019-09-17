@@ -1,0 +1,102 @@
+\chapter{Week14}
+
+\section{Monday}\index{Monday_lecture}
+\subsection{applications}
+\[\begin{cases}\dot{x}=ax-bxy=x(a-by)\\
+\dot{y}=-cy+\tilde{d}xy=y(-c+\tilde{d}x)
+\end{cases}
+\]
+$x:preyer$ $y:predators$ $a, b, c, d, $ are constants >0.
+\[\frac{\frac{dy}{dt}}{\frac{dx}{dt}}=\frac{\dot{y}}{\dot{x}}=\frac{y(-c+\tilde{d}x)}{x(a-by)}
+\]
+\[(a-by)\frac{dy}{y}=\frac{-c+\tilde{d}x}{x}dx\]
+\[(alny-by)=-clnx+\tilde{d}x+\bar{c}
+\]
+\[\frac{y^a}{e^{by}}=\frac{e^{\tilde{d}x}}{x^c}K
+\]
+\[\frac{x^cy^a}{e^{by}e^{\tilde{d}x}}=K
+\]
+\begin{definition}[$\alpha$-level curve]
+\[\{(x,y)|\varphi(x,y)=\alpha\}
+\]
+\end{definition}
+lemma: The level curves of the function $\varphi(x,y)=\frac{x^c}{e^{\tilde{d}x}}\frac{y^a}{e^{by}}(\equiv g(x)h(y))$ simple closed curves.
+\begin{proof}
+\[\nabla\varepsilon=<\frac{\partial\varepsilon}{\partial x},\frac{\partial\varepsilon}{\partial y}>
+\]
+\[\varphi_x=(\frac{cx^{c-1}}{e^{\tilde{d}x}}-\tilde{d}\frac{x^c}{e^{\tilde{d}x}})h(y)=0
+\]
+\[\varepsilon_y=g(x)(\frac{ay^{a-1}}{e^{by}}-b\frac{y^a}{e^{by}})=0
+\]
+Therefore, the critical points of $\varphi$: $\nabla\varphi(x,y)=0$ is:\\
+\[(\frac{c}{\tilde{d}},\frac{a}{b})
+\]
+The area $\varphi>\alpha$ defined by a closed curve. \\
+Assume this isn't the case, there are two closed region $\varphi>\alpha$. Then, there will be two local maximum in the first quadrant. This is contradict to the statement that $(\frac{c}{\tilde{d}},\frac{a}{b})$ is the only local maximum in the first quadrant.
+
+\end{proof}
+
+\paragraph[lemma]
+Let $(x(t),y(t))$ be a periodic solution with period $T$. Then
+\[\bar{x}\equiv\int_0^Tx(t)\diff t=\frac{c}{\tilde{d}}
+\]
+\[\bar{y}\equiv\int_0^Ty(t)\diff t=\frac{a}{b}
+\]
+\begin{proof}
+\[\frac{\dot{x}}{x}=a-by
+\]
+\[ln(x(t))|_0^T=\int_0^T(a-by)\diff t
+\]
+\[0=aT-b\int_0^Ty(t)\diff t
+\]
+\[\frac{a}{b}=\frac{1}{T}\int_0^Ty(t)\diff t
+\]
+\end{proof}
+Let's see why, after the world war, the amount of preyer captured increased and the predator's fishery amount decrease.\\
+During the war, they satisfies the equation.
+\[\begin{cases}
+\dot{x}=x(a-by)\\
+\dot{y}=y(-c+\tilde{d}y)
+\end{cases}
+\]
+The average amount is given by above lamma. 
+While, after the war, equations change to
+\[\begin{cases}
+\dot{x}=x(a-\epsilon-by)\\
+\dot{y}=y(-(c+\epsilon)+\tilde{d}y)
+\end{cases}
+\]
+\[\bar{x}=\frac{c}{\tilde{d}}\Rightarrow\frac{c+\epsilon}{\tilde{d}}\qquad\bar{y}=\frac{a}{b}\Rightarrow\frac{a-c}{b}
+\]
+Logistic equation
+\[u_t=au(1-\frac{u}{k})
+\]
+where a is growth rate, k is carrying capacity.
+\[\begin{cases}u_t=au(1-\frac{u}{k_1}-\frac{v}{L_1})\\v_t=cv(1-\frac{v}{k_2}-\frac{u}{l_2})\end{cases}
+\]
+\[\begin{cases}u_t=u(a_1-b_1u-c_1v)\quad u=0 \text{ or } a_1-b_1u-c_1v=0\\v_t=v(a_2-b_2u-c_2v)\quad v=0 \text{ or } a_2-b_2u-c_2v\end{cases}
+\]
+\[\frac{b_1}{b_2}>\frac{a_1}{a_2}>\frac{c_1}{c_2}: \text{ weak competition}
+\]
+\[\frac{b_1}{b_2}<\frac{a_1}{a_2}<\frac{c_1}{c_2}: \text{ strong competition}
+\]
+\[\begin{cases}a_1-b_1u_*-c_1v_*=0\\a_2-b_2v_*-c_2v_*=0
+\end{cases}
+\]
+[Lemma] The equilibrium $(v_*,v_*)$ is \\
+(i) unstable: if competition is trong (i.e. if $\frac{b_1}{b_2}<\frac{a_1}{a_2}<\frac{c_1}{c_2}$)\\
+(ii) asymptotically stable: if the competition is weak.\\
+Pf: linearlize the system at $(u_*,v_*)$.
+
+
+
+
+
+
+
+
+
+
+
+
+

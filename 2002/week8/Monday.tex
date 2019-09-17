@@ -1,0 +1,96 @@
+\chapter{Week8}
+
+\section{Monday}\index{Monday_lecture}
+\subsection{Euler's Equation}
+Recall previous knowledge,
+\[t^2y\pp+\alpha ty\p+\beta y=0\qquad t>0
+\]
+$y=t^r$ $\Rightarrow\qquad$ $r(r-1)+\alpha r+\beta=0$ \\
+$r^2+(\alpha-1)r+\beta=0$\\
+$r_1,r_2=\frac{-(\alpha-1)\pm\sqrt{(\alpha-1)-4\beta}}{2}$
+\begin{enumerate}
+\item $(\alpha-1)^2-4\beta>0$  two real roots, $y=c_1t^{r_1}+c_2t^{r_2}$
+\item $(\alpha-1)^2-4\beta=0$ $r_1=r_2=r$, $y=c_1t^r+c_2t^rlnt$
+\item $(\alpha-1)^2-4\beta<0$ $r=\lambda\pm i\mu$, $y=t^\lambda[c_1\cos(\mu lnt)+c_2\sin(\mu lnt)]$
+\end{enumerate}
+
+Some motivations of Euler's Equation: Bessel's equation of order $\frac{1}{2}$\\
+\[t^2y\pp+ty\p+(t^2-\frac{1}{4})y=0
+\]
+There doesn't exist a solution with the form of $y=\sum_{n=0}^\infty a_nt^n$. When $t=0$ it's a first order differential equation, the solution of this equation is only at one point $t=0$ which doesn't make much sense. We call this a singular point. We need to do something to factor out singularity.\\
+\paragraph{Generalization}
+\[L[y]\equiv t^2y\pp+t[p_0+p_1t+p_2t^2+\dots]y\p+[q_0+q_1t+q_2t^2+\dots]y=0
+\]
+Method of Frobenius,
+\[y=\sum_{n=0}^\infty a_nt^{n+r}
+\]
+\begin{remark}
+$r$ can be $\mathbb{R}$.\\
+In order to avoid ambiguity, $a_0\neq 0$. Otherwise, it becomes $y=\sum_{n=1}^\infty a_nt^{n+r}$ which are the same as $y=\sum_{n=0}^{\infty}b_nt^{n+r\p}$. As $r$ and $r\p=r+1$ need to be determined, we have $y=\sum_{n=1}^\infty a_nt^{n+r}$ with the first term equals to zero, and $y=\sum_{n=0}^{\infty}b_nt^{n+r\p}$ to represent the same thing. Simply put, $a_0\neq 0$
+\end{remark}
+\[y\p=\sum_{n=0}^\infty(n+r)a_nt^{n+r-1}
+\]
+\[y\pp=\sum_{n=0}^{\infty}(n+r)(n+r-1)a_nt^{n+r-2}
+\]
+\[\begin{aligned}L[y]&=\sum_0^\infty(n+r)(n+r-1)a_nt^{n+r}+(\sum_{m=0}^\infty p_mt^m)(\sum_0^\infty (n+r)a_nt^{n+r})+\sum_{m=0}^\infty q_nt^m\sum_0^\infty a_nt^{n+r}\\
+&=r(r-1)a_0+p_0ra_0+q_0a_0+[(1+r)ra_1+p_0(1+r)a_1+p_1ra_0+q_0a_1q_1a_0]t+\dots\\
+&=[r(r-1)+p_0r+q_0]a_0+\underline{[\{(1+r)r+p_0(1+r)+q_0\}a_1+\{p_1r+q_1\}a_0]t}+\dots\\
+&\quad+\underline{[(k+r)(k+r-1)a_k+\sum_{m=0}^kp_m(k-m+r)a_{k-m}+\sum_{n=0}^kq_ma_{k-m}]t^k}+\dots
+\end{aligned}
+\]
+In order to have a solution $L[y]=0$,
+Indicial equation
+\[F(r)=r(r-1)+p_0r+q_0=0
+\]
+\[F(r+1)a_1=-[p_1r+q_1]a_0
+\]
+retrieved from first underline.\\Let's rewrite second underline a little bit.
+\[=[(k+r)(k+r-1)a_k+\sum_0^{k-l}p_{k-l}(l+r)a_l+p_0a_k(k+r)+\sum_{n=1}^kq_{k-l}a_l+q_0a_k]t^k
+\]
+\[F(r+k)a_k=-[\sum_0^{k-1}\{p_{k-l}(l+1)+q_{k-l}\}a_l]
+\]
+It is clear that all $a_n$ can be solved recursively.\\
+If there exists two real roots $r_1\geq r_2$, then 
+\begin{itemize}
+\item $r_1>r_2$ and $r_1-r_2$ is  not a positive integer. We will have two solutions.
+\item $r_1>r_2$ and $r_1-r_2$ is a positive ineger then, you need to check textbook for more information as this will not be tested in the final.
+\item $r_1=r_2$ check \textsection 2.8.3 for more information.
+\end{itemize}
+\begin{example}
+\[t^2y\pp+ty\p+(-\frac{1}{4}+t^2)y=0
+\]
+$p_0=1$, $p_1=p_2=\dots=0$; $q=-\frac{1}{4}$, $q_1=0$, $q_2=1$, $q_3=0$\\Look at $L[y]\equiv t^2y\pp+t[p_0+p_1t+p_2t^2+\dots]y\p+[q_0+q_1t+q_2t^2+\dots]y=0$. You will know how we get all those stuffs.\\
+$r(r-1)+r-\frac{1}{4}=0$, $r=\pm\frac{1}{2}$\\
+First look at the first case $r=r_1=\frac{1}{2}$\\
+$F(q+\frac{1}{2})a_1=0\Rightarrow a_1=0\dots(1)$ (We just pluge those stuffs in $F(r+1)a_1=-[p_1r+q_1]a_0$. \\
+$F(k+r)a_k=k(k+1)a_k=-a_{k-2}\quad\Rightarrow ak=-\frac{1}{(k+1)ka_{k-2}}\dots(2)$  (As $F(k+r)=(r+k)^2-\frac{1}{4}=k(k+1)$)\\
+With (1) and (2), we get $a_3=a_5=\dots=0$
+\[a_2=-\frac{1}{3!}a_0
+\]
+\[a_4=-\frac{1}{5\cdot4}a_2=\frac{1}{5!}a_0
+\]
+\[a_{2n}=\frac{(-1)^n}{(2n+1)!}a_0
+\]
+\[y_1=a_0t^{\frac{1}{2}}(1-\frac{1}{3!}t^2+\frac{1}{5!}t^2-\dots)
+\]
+\[y_1=a_0t^{-\frac{1}{2}}\sin t
+\]
+$r_2=-\frac{1}{2}$
+\[F(1+r_2)a_1=F(\frac{1}{2})a_1=0
+\]
+It's lucky both sides are equal to zero, else we cannot solve the second solution in this way.
+\[F(k+r_2)=k(k-1)a_k=-q_2a_{k-2}=-a_{k-2}
+\]
+\[a_k=-\frac{1}{(k-1)k}a_{k-2}
+\]
+\[a_2=-\frac{1}{2}a_0
+\]
+\[a_4=-\frac{a_4}{4\cdot3}a_2=\frac{1}{4!}a_0
+\]
+\[a_6=-\frac{a_4}{6\cdot5}=-\frac{1}{6!}a_0
+\]
+\[y_2=t^{-\frac{1}{2}}a_0[1-\frac{1}{2!}t^2+\frac{1}{4!}t^4+\dots]=a_0t^{-\frac{1}{2}}\cos t
+\]
+Therefore, the general solutions is $y=\frac{1}{\sqrt{t}}(c_1\cos t+c_2\sin t)$
+\end{example}
+

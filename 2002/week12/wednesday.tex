@@ -1,0 +1,39 @@
+\section{Wednesday}\index{Wednesday_lecture}
+\subsection{Stability of Linear System}
+\begin{theorem}
+$\dot{\X}=A\X$, where $A$ is a constant matrix\\
+(i) If A has an eigenvalue with positive real part, then all solutions are unstable.\\
+(ii) If all eigenvalues of $A$ have negative real parts, then all solutions are stable.\\
+(iii) Suppose $\lambda_1=i\delta_1,\dots,\lambda_k=i\delta_k$, and $\lambda_{k+1},\dots, \lambda_n$ have negative real parts. Assume multiplicity of $\lambda_j$ is $m_j$, $j=1,\dots,k$. Then all solutions are stable if $A$ has $m_j$ linearly indepedent eigenvectors corresponding to $\lambda_j$ $j=1,\dots,k$. Otherwise, all solutions are unstable.
+
+
+\end{theorem}
+\paragraph{Lemma:} $\X\equiv0$ is a solution. Suppose $\tilde{\X}\equiv0$ is stable, then $\forall\varepsilon>0, \exists\delta>0$ s.t. $||\X(t)-0||<\varepsilon$ if $||\X(0)-0||<\delta$ for all $t>0$. We want to show that $\X^*$ is also stable, where $\X^*(t)$ is an arbitrary solution. i.e. We want to show that $\forall\varepsilon>0, \exists\delta>0$, s.t. $||\X(t)-\X^*(t)||<\varepsilon$ if $||\X(0)-\X^*(0)||<\delta$ for all $t>0$.
+
+%The proof of the theorem is omited.
+
+
+
+\begin{example}
+\[\dot{\X}=\begin{pmatrix}2&-3&0\\0&-6&-2\\-6&0&-3\end{pmatrix}\X\]
+\[0=|A-\lambda I|=\left|\begin{array}{ccc}2-\lambda&-3&0\\0&-6-\lambda&-2\\-6&0&-3-\lambda\end{array}\right|=-\lambda^2(\lambda+7)
+\]
+\[\Rightarrow \lambda_1=0  \lambda_2=0 \lambda_3=-7
+\]
+When $\lambda=0$,
+\[Av=\begin{pmatrix}2&-3&0\\0&-6&-2\\-6&0&-3\end{pmatrix}\begin{pmatrix}a\\b\\c\end{pmatrix}=\begin{pmatrix}2a-3b\\-6b-2c\\-6a-3c\end{pmatrix}=\underline{0}\Rightarrow v=\begin{pmatrix}3\\2\\-6\end{pmatrix}
+\]
+Since $v$ is the only eigenvector of 0, we know all solutions are unstable.
+\end{example}
+
+When $f$ is arbitrary (f is not linear), can we still understand the solutions near an equilibrium solution $\X_0$; $f(\X_0)=0$?\\
+Idea: near the point $x_0$, write 
+\[f(x_0)=A(x-x_0)+o(||x-x_0||^2)
+\]
+
+
+
+
+
+
+

@@ -1,0 +1,131 @@
+
+\chapter{Week6}
+
+\section{Monday}\index{Monday_lecture}
+\subsection{$2^{nd}$ Order linear equation with constant coefficients}
+\begin{example}
+\[y^{\prime\prime}-3y^\prime+2y=0
+\]
+Define operator: $Dy\triangleq y^\prime$, \quad$D^{2}y\triangleq y^{\prime\prime}$\\
+Then $D^{2}y-3Dy+2y=0$,\\
+our operator $L\triangleq D^2-3D+2$, \quad then $L[y]=0$\quad $(D^2-3D+2)y=0$.\\
+$(D-2)(D-1)y=0$ \quad then $Dz-2z=0$ \quad \\i.e. $z^\prime-2z=0$
+$\mu=e^{\int-2\diff t}=e^{-2t}$ \quad $(e^{-2t}z)^\prime=0$\\
+$e^{-2t}z=c_1$ Therefore, $z=c_1e^{2t}$\\
+Moreover, $(D-1)y=z=c_1e^{2t}$\\
+Means, $y^\prime-y=c_1e^{2t}$\\
+$(e^{-ty}y)^\prime=c_1e^{2t}e^{-t}=c_1e^t$\\
+$e^{-t}y=c_1e^{t}+c_2$\\
+$y=c_1e^{2t}+c_2e^{t}$\\
+$\{e^{2t},e^t\}$ is linearly independent. (Then this is a basis spanning the set of all solutions.)\\
+There are two ways to prove independence; use definition, and Wronskian.\\
+(1) Suppose $c_1e^{2t}+c_2e^t=0$\\
+
+$\left \{	\begin{gathered}
+c_1+c_2=0 \qquad(t=0)\\
+c_1e^2+c_2e=0\qquad(t=1).
+\end{gathered}\right.$ 
+Solve these equations, we get $c_1=c_2=0$.\\
+(2)$W[e^{2t},e^t]=y_1y_2^\prime-y_2y_1^\prime=e^{2t}e^t-e^t2e^{2t}=-e^{3t}\neq0$
+
+
+
+\end{example}
+In general, when a, b, c are constants.
+\[ay^{\prime\prime}+by^\prime+cy=0
+\]
+\[aD^2+bD+C=0
+\]
+\[\frac{-b\pm\sqrt{b^2-4ac}}{2a}
+\]
+(i)$b^2-4ac>0$ $\Rightarrow$ 2 real roots $r_1$, $r_2$\\
+(ii)$b^2-4ac<0$ $-\frac{b}{2a}\pm i\frac{\sqrt{4ac-b^2}}{2a}$\\
+(iii)$b^2-4ac=0$  double root
+\begin{example}
+\[4y^{\prime\prime}+4y^\prime+5y=0
+\]
+\[4r^2+4r+5=0\quad\Rightarrow\quad r=\frac{-4\pm\sqrt{16-80}}{8}=-\frac{1}{2}\pm i
+\]
+\[e^{(-\frac{1}{2}+i)t}=e^{-\frac{1}{2}t}e^{it}=e^{-\frac{1}{2}t}(\cos t+i\sin t)\]
+\[e^{-\frac{1}{2}t}\cos t\pm ie^{-\frac{1}{2}t}\sin t
+\]
+\[y=u(t)+iv(t)
+\]
+\[0=L[t]=L[u+iv]=L[u]+iL[v]
+\]
+$\iff$ By complex number definition of zero.
+\[L[u]=0 \quad\&\quad L[v]=0
+\]
+This implies $\left \{	\begin{gathered}
+u=e^{-\frac{1}{2}t}\cos t\\
+v=e^{-\frac{1}{2}t}\sin t.
+\end{gathered}\right.$ both are solutions.\\
+Just take a simple check to see whether this is true or not. Take $v$ as an example.
+%%%Attention
+\[5v=5e^{-\frac{1}{2}t}\sin t
+\]
+\[4v^\prime=-2e^{-\frac{1}{2}t}\sin t+4e^{-\frac{1}{2}t}\cos t
+\]
+\[4v^{\prime\prime}=e^{-\frac{1}{2}t}\sin t-4e^{-\frac{1}{2}t}\cos t-4e^{-\frac{1}{2}t}\sin t
+\]
+Therefore,
+\[L[v]=4v\pp+4v\p+5v=0.
+\]
+This implies $v$ is a solution. In addition, these two solutions are linearly independent.
+$\{e^{-\frac{1}{2}t}\sin t,e^{-\frac{1}{2}t}\cos t\}$ are l. indep. \\
+$c_1e^{-\frac{1}{2}t}\sin t+c_2e^{-\frac{1}{2}t}\cos t=0$ $t=0\Rightarrow c_2=0$
+
+\end{example}
+\begin{example}
+\[y^{\prime\prime}+4y^\prime+4y=0
+\]
+\[r^2+4r+4=0
+\]
+\[(r+2)^2=0
+\qquad\Rightarrow r=-2,-2\]
+$\Rightarrow$ we have at least one solution $e^{-2t}$\\
+Q; How to find $2^{nd}$ solution?
+\[4y=4C(t)e^{-2t}
+\](Variation of parameters)
+\[4y^\prime=4C^\prime e^{-2t}-8ce^{-2t}
+\]
+\[y^{\prime\prime}=c^{\prime\prime}e^{-2t}-4c^\prime e^{-2t}+4ce^{-2t}
+\]
+Sum them up
+\[L[Cy]=c^{\prime\prime}e^{-2t}=0\qquad \Rightarrow c^{\prime\prime}=0
+ \quad c^\prime=\alpha\qquad\alpha\text{ is a constant}\]
+\[c=\alpha t+c_1 \qquad c=t
+\]
+\[y_2=te^{-2t}
+\]
+We just take $c_1=0$ and $\alpha=1$ for simplicity. The reason is that other coefficients just contribute to an additional general solution term which is redundant.
+\end{example}
+
+
+
+\begin{example}
+\[(1-t^2)y^{\prime\prime}+2ty^\prime-2y=0
+\]
+$t=\pm1$, $1-t^2=0$, singularity for a solution. (PS: Roughly speaking, singularity means the coefficient highest order is zero. However, specific details of singularity is somehow exotic. You can check wikipidia yourself. Or later on section 2.8, the solution is analytic at $t=t_0$ requires the $\frac{Q(x)}{P(x)}$ and $\frac{R(x)}{P(x)}$ have convergent taylor series expansions at $t=t_0$. For instance, in this example, the fraction doesn't make any sense at $t=1$ at all.)\\
+Lateron in 2.8, we will know how to factor out this singularity. At present, let's just focus on $-1<t<1$. Observe:\\
+$y_1=t$ is a solution.\\
+$y=c(t)t$\\
+$y^\prime=c^\prime t+c$\\
+$y^{\prime\prime}=c^{\prime\prime}t+2c^\prime$\\
+\[\begin{aligned}(1-t^2)y^{\prime\prime}+2ty^\prime-2y&=(1-t^2)(c^{\prime\prime}t+2c^\prime)+2t(c^\prime t+c)-2ct\\
+&=t(1-t^2)c^{\prime\prime}+[2(1-t^2)+2t^2]c^\prime\\
+&=t(1-t^2)c^{\prime\prime}+2c^\prime=b\end{aligned}\]
+$g=c^\prime$ $\Rightarrow$ $t(1-t^2)g^\prime+2g=0$\\
+$t\neq0$ 
+\[\int\frac{\diff g}{g}=-\int\frac{2}{t(1-t^2)}\diff t
+\]
+\[ln|g|=[-2ln|t|+ln|1-t^2|]=ln|\frac{1-t^2}{t^2}+C|
+\]
+\[|g|=|\frac{1-t^2}{t^2}|\tilde{c}, \quad\tilde{c}>0
+\]
+$\Rightarrow$ $g=\bar{c}\frac{1-t^2}{t^2}$, $\bar{c}\in \mathbb{R}$\\
+$c^\prime=\bar{c}(\frac{1}{t^2}-1)$ $\Rightarrow$ $c=\frac{1}{t}+t$ $(\bar{c}=-1)$\\
+\[y_2=(\frac{1}{t}+t)t=1+t^2
+\]
+$\{t,t^2+1\}$ is l.dep.
+\end{example}

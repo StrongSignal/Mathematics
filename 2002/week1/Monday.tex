@@ -1,0 +1,111 @@
+
+\chapter{Week1}
+
+\section{Monday}\index{Monday_lecture}
+\subsection{Motivations}
+\begin{itemize}
+\item A rocket is set up and then fall down. Which time is longer going-up period or falling-down part considering air resistance? At the first, it is clear that the time rocket goes up is shorter because at any level goes-up velocity is higher than goes-down velocity with constant energy point of view. We can even figure out explicitly how faster it is at a specific position in the future with the help of ode.
+\item A hot coffee is added cream immediately. Another one is added ten minutes after the coffee was made. Which one is cooler after ten minutes?
+\item A lion wants to chase a deer. The velocity of lion is twice faster than deer. In which way can lion catch the deer within least time consumed?( Deer run in a straight line.)
+\item There are four people sitting at the corner of a square respectly. They look at each other in a clock wise way. Then they begin to walk towards the men they look at. Where will they meet? How long do they walk?
+\end{itemize}
+Those are all related to ode. If you are interested in those topic, study ode!
+\subsection{$1_{st}$ order linear differential equations}
+Prof Ni started directly with the material. However, some of the content from {\it Differential equations and their applications} will be cited to improve readers comprehension.
+As present in the textbook, a differential equation is a relationship (namely the equation) between a function of time and its derivatives. In addition, a solution of a differential equation means a continuous function y(t) which together with its derivatives satisfies the relationship.
+\begin{definition}[$1_{st}$ order linear DE]
+\[y^{\prime}(t)+a(t)y=b(t)
+\]
+\end{definition}
+\begin{remark}
+Assume the coefficient of first derivative is 1.
+\end{remark}
+The following are methods to solve to different kinds of DE.
+When $b\equiv 0$, the equation above is called \emph{homogeneous} $1_{st}$ order DE.
+\[y^{\prime}(t)+a(t)y=0
+\]
+\[\frac{y^{\prime}}{y}=-a(t)
+\]
+\[ln|y|=-\int a(t)\diff t+c
+\]
+\[|y|=e^{-\int a(t)\diff t}e^c
+\]With \~{c}$>0$, y is a continuous function 
+\[|y|= \tilde{c}  e^{-\int a(t)\diff t}
+\]
+With $\bar{c}\in\mathbb{R}$,
+\[y=\bar{c}e^{-\int a(t)\diff t}
+\]
+The above procedure shows that $y=\bar{c}e^{-\int a(t)\diff t}$ is a solution of homogeneous $1_{st}$ order DE.
+When $b\not\equiv 0$, it is called \emph{inhomogeneous}, 
+\[
+\begin{array}{ll}
+y=ce^{-\int a(t)\diff t}&,c \mbox{ constant in }\mathbb{R} \mbox{ (homog)}\\
+y=c(t)e^{-\int a(t)\diff t}&,c(t): \mbox{to be determined}\dots(1)\\
+\end{array}
+\]
+Take derivative of both sides of  (1),
+\[\Rightarrow y^{\prime}=c(t)e^{-\int a(t)\diff t}(-a(t))+c^{\prime}(t)e^{-\int a(t)\diff t}=-a(t)y+c^{\prime}(t)e^{-\int a(t)\diff t}
+\]
+Move $-a(t)y$ to the other side,
+\[y^{\prime}+a(t)y=c^{\prime}(t)c^{\prime}(t)e^{-\int a(t)\diff t}=b
+\]
+\[c^{\prime}(t)=be^{\int a(t)\diff t}
+\]
+Integrate both sides, we get
+\[\boxed{\Rightarrow c(t)=\int(b(t)e^{\int a(t)\diff t})\diff t}+\tilde{c}
+\]
+Take it in (1), we can get the solution:
+\[y(t)=\tilde{c}e^{-\int a(t)\diff t}+e^{-\int a(t)\diff t}\int[b(t)e^{\int a(t)\diff t}\diff t]
+\]
+\paragraph{\underline{Integrating factor} is another method to solve inhomogenous equations} The intuition is: \\after multiplying both side by $\mu$, a function of $t$, 
+\[\mu y^{\prime}(t)+\mu a(t)y=b(t)\mu
+\]
+if the left hand side of the equation equals to the derivative of a particular function $(y\mu)^\prime$. There is
+\[(y\mu)^{\prime}=\mu b
+\]
+Integrate both sides, we get $y\mu=\int(b\mu)+c$. Move $\mu$ to right-hand side we will get the solution.\\
+To find $\mu(t)$ s.t. $\mu(y^{\prime}+a(t)y)=(y\mu)^{\prime}=y^{\prime}\mu+y\mu^{\prime}$ is to find $\mu a(t)=\mu^\prime$. \\
+Solve $\mu(t)$ under condition $\mu a(t)=\mu^\prime$ is homogenuous which we have discuss how to solve before. (See the following.)
+\[\frac{\mu^\prime}{\mu}=a\]
+\[ln|\mu|=\int a(t)\diff t+c\]
+\[|\mu|=e^{\int a(t)\diff t}e^c\]
+\[\mu=\pm e^{\int a(t)\diff t}e^c=\tilde{c}e^{\int a(t)\diff t}\]
+Substitude to $\mu(y^\prime+a(t)y)=\mu b$,
+\[(ye^{\int a(t)\diff t})^\prime=be^{\int a(t)\diff t}
+\]
+Integrate both sides,
+\[ye^{\int a(t)\diff t}=\int(be^{\int a(t)\diff t})+C\]
+Move $e^{\int a(t)\diff t}$ to the right hand side,
+\[y=e^{-\int a(t)\diff t}(\int(be^{\int a(t)\diff t})+C)\]
+\begin{example}
+Find $y$ s.t.
+
+\[
+\left \{	\begin{gathered}
+y^\prime-2ty=t 	\\
+y(0)=1
+\end{gathered}	\right.
+\]
+\[y^{\prime}-2ty=0\]
+\[\frac{y^\prime}{y}=2t\]
+\[ln|y|=t^2\]
+\[y=ce^{t^2}, c\in\mathbb{R}  (\text{This is the $\mu$ we want.})\]
+\[(y^\prime-2ty)e^{-t^2}=te^{-t^2}\]
+\[(ye^{-t^2})^\prime=te^{-t^2}\]
+Integrate both sides and move $e^{-t^2}$ to the right hand side:
+\[
+\begin{aligned}
+	 y&=e^{t^2}(\int te^{-t^2}\diff t+c)  \\
+ 		&=e^{t^2}(-\frac{1}{2}e^{-t^2})+ce^{t^2} \\
+		&=-\frac{1}{2}+ce^{t^2} \\	
+\end{aligned}
+\]
+\[y(0)=1\]
+\[c=\frac{3}{2}\]
+\end{example}
+
+
+
+
+
+
